@@ -1,4 +1,5 @@
 - [XcodeTemplateTool](#xcodetemplatetool)
+- [Quick start](#quick-start)
 - [Usage](#usage)
   - [Setup](#setup)
     - [Credential](#credential)
@@ -18,6 +19,36 @@
 A simple CLI tool to manage your Xcode templates.
 
 
+# Quick start
+First things first, the tool needs to be configured. So, let's setup our credentials with the following command:
+
+``` shell
+xtt setup credential add <USERNAME> <PASSWORD>
+```
+This will store a new entry on our Keychain with our user and our encrypted password.
+
+Next step is to setup our remote, so we can fetch templates from it.
+
+``` shell
+xtt setup remote add <REMOTE>
+```
+
+This command will clone our repository locally and will enable us to install our templates!
+
+Now, we will check what are the templates that we can install (the ones that we've already fetched) using the `list` command:
+
+``` shell
+xtt template list
+```
+
+Finally, we can install one of the templates that we have just fetched issuing the following command:
+
+``` shell
+xtt template install <TEMPLATE>
+```
+With these steps we will have our template up and running and ready to be used in our Xcode.
+
+---
 
 # Usage
 XTT has a simple interface and it is divided in subcommands (along the lines that GIT CLI uses). This are all the different commands that the tool accepts.
