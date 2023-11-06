@@ -3,7 +3,7 @@ use clap::Parser;
 
 
 #[derive(Parser)]
-#[clap(version = "1.0.0", author = "alvarezGarciaMarcos")]
+#[clap(version = "1.0.1", author = "alvarezGarciaMarcos")]
 pub struct CLI {
     #[clap(subcommand)]
     pub command: Option<Commands>,
