@@ -75,14 +75,16 @@ pub fn install(template: &String, _as_file: bool) -> Result<(), XTTError> {
             // create_symlink(path, to)
             let template_name = template.clone();
             let repo_template_dir = from.as_path().join(&template_name);
-            let xcode_template_dir = to.as_path().join(&template_name);
-            // create_dir_if_missing(&xcode_template_dir);
 
-            if let Some(str_path) = xcode_template_dir.as_path().to_str() {
+            // Create Xcode template dir if missing
+            if let Some(str_path) = to.as_path().to_str() {
                 if let Some(expanded) = expand_user(str_path) {
                     create_dir_if_missing(&expanded);
                 }
             }
+
+            let xcode_template_dir = to.as_path().join(&template_name);
+
 
 
             match create_symlink(&repo_template_dir, &xcode_template_dir) {

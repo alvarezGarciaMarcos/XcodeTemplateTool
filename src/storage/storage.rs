@@ -58,10 +58,7 @@ pub fn create_symlink(from: &PathBuf, to: &PathBuf) -> Result<(), XTTError> {
 
         match unix_fs::symlink(&from, &expanded_to) {
             Ok(_) => Ok(()),
-            Err(error) => { 
-                println!("{}", error);
-                Err(XTTError::CannotCreateSymlink)
-            }
+            Err(error) => Err(XTTError::CannotCreateSymlink)
         }
     } else {
         Err(XTTError::CannotCreateSymlink)
